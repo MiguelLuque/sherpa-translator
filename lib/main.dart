@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:sherpa_translator/widgets/translation_form.dart';
 
 void main() async {
-  await dotenv.load();
   runApp(const MyApp());
 }
 
@@ -25,7 +23,8 @@ class MyApp extends StatelessWidget {
 class TranslatorScreen extends StatelessWidget {
   TranslatorScreen({Key? key}) : super(key: key);
 
-  final String title = '${dotenv.env['APP_NAME']}';
+  final String title = const String.fromEnvironment('APP_NAME',
+      defaultValue: 'Default App Name');
 
   @override
   Widget build(BuildContext context) {

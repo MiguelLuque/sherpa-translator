@@ -21,18 +21,14 @@ jobs:
           envkey_OPENAI_KEY: ${{secrets.OPENAI_KEY}}
       - run: flutter config --enable-web
       - run: flutter pub get
-      - run: flutter build web --release
+      - run: flutter build web --release --dart-define OPENAI_KEY=${{secrets.OPENAI_KEY}}
       - run: |
           cd build/web
           git init
-          # in line 24 and 25 type your email id and username respectively
-          #git config --global user.email email_ids
-          #git config --global user.name username 
           git config --global user.email miguel.luque.97@gmail.com
-          git config --global user.name miguelluque97
+          git config --global user.name MiguelLuque
           git status
-          # in line 30 after @ add your repo link  
-          git remote add origin ${{secrets.REPO_URL}}@github.com/MiguelLuque/sherpa-translator.git
+          git remote add origin https://${{secrets.COMMIT_SECRET}}@github.com/MiguelLuque/sherpa-translator.git
           git checkout -b gh-pages
           git add --all
           git commit -m "update"

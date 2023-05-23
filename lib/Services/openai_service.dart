@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/openai_request.dart';
@@ -8,12 +7,12 @@ import '../models/message.dart';
 import '../models/openai_response.dart';
 
 class OpenAIService {
-
   static final Uri completionsEndpoint =
       Uri.parse('https://api.openai.com/v1/chat/completions');
+
   static final Map<String, String> headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ${dotenv.env['OPENAI_KEY']}',
+    'Authorization': 'Bearer ${const String.fromEnvironment('OPENAI_KEY')}',
   };
   Future<String> getTranslation(
       String text, String languaje, String intentionallity) async {
