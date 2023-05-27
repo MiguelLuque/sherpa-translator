@@ -18,7 +18,6 @@ jobs:
       - uses: SpicyPizza/create-envfile@v1.3
         with:
           envkey_APP_NAME: ${{secrets.APP_NAME}}
-          envkey_OPENAI_KEY: ${{secrets.OPENAI_KEY}}
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release --dart-define OPENAI_KEY=${{secrets.OPENAI_KEY}}
