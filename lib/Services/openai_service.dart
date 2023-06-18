@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
+import '../env/env.dart';
 import '../models/openai_request.dart';
 import '../models/message.dart';
 import '../models/openai_response.dart';
@@ -12,7 +13,7 @@ class OpenAIService {
 
   static final Map<String, String> headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ${const String.fromEnvironment('OPENAI_KEY')}',
+    'Authorization': 'Bearer ${Env.openaiKey}',
   };
   Future<String> getTranslation(
       String text, String languaje, String intentionallity) async {

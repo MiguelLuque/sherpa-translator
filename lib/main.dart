@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sherpa_translator/env/env.dart';
 import 'package:sherpa_translator/widgets/translation_form.dart';
 
 void main() async {
@@ -23,8 +24,7 @@ class MyApp extends StatelessWidget {
 class TranslatorScreen extends StatelessWidget {
   TranslatorScreen({Key? key}) : super(key: key);
 
-  final String title = const String.fromEnvironment('APP_NAME',
-      defaultValue: 'Default App Name');
+  final String title = Env.appName;
 
   @override
   Widget build(BuildContext context) {

@@ -45,5 +45,6 @@ app.*.map.json
 
 # Environment related
 *.env
+*env.g.dart
 *launch.json
 ```
